@@ -57,4 +57,10 @@ class MyWebCrawler(object):
         def crawl():
             urlsToParse = {self.starterUrl}
             while(len(urlsToParse) > 0 and len(self.visited) < self.max):
+                nextUrl = urlsToParse.pop()
+                if nextUrl not in self.visited:
+                    self.visited.add(nectUrl)
+                    print("Parsing: {}".format(nextUrl))
+                    urlsToParse |= self.parse(nextUrl)
+
 
